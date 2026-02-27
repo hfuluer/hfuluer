@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Master: Multiplication Challenge</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- Screen 1: Welcome -->
+        <section id="welcome-screen" class="screen active">
+            <div class="logo-area">
+                <div class="icon">🎓</div>
+                <h1>Matematik Ustası</h1>
+            </div>
+            <p class="subtitle">Çarpım Tablosu Pratiği</p>
+
+            <div class="onboarding-action">
+                <button id="btn-start" class="btn btn-massive">BAŞLA</button>
+                <div class="input-wrapper">
+                    <input type="text" id="student-name" class="name-input" placeholder="Adını yaz..."
+                        autocomplete="off">
+                    <div id="name-error" class="error-msg"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 2: Quiz -->
+        <section id="quiz-screen" class="screen">
+            <div class="quiz-header">
+                <div class="stat-box top-left-info">
+                    <span class="label">Öğrenci: <span id="student-display" class="value"></span></span>
+                </div>
+                <div class="stats-right">
+                    <div class="stat-box time-box">
+                        <span class="label">Kalan Süre</span>
+                        <span class="value" id="global-timer-display">08:00</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="label">Puan</span>
+                        <span class="value" id="score-display">0</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="label">Soru</span>
+                        <span class="value" id="q-counter">1/60</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="streak-banner" id="streak-banner">
+                <span id="multiplier-display"></span>
+            </div>
+
+            <div class="question-container">
+                <div class="equation" id="equation">3 × 4 = ?</div>
+            </div>
+
+            <!-- Multiple Choice -->
+            <div class="options-grid" id="options-grid">
+                <!-- Buttons injected by JS -->
+            </div>
+
+            <!-- Short Answer (hidden by default) -->
+            <div class="short-answer-container" id="short-answer-container" style="display: none;">
+                <input type="number" id="short-answer-input" class="name-input answer-input" placeholder="Cevabı yaz..."
+                    autocomplete="off">
+                <button id="btn-submit-answer" class="btn btn-primary" style="margin-top: 1rem;">Cevapla</button>
+            </div>
+
+            <div class="feedback-msg" id="feedback-msg"></div>
+        </section>
+
+        <!-- Screen 3: Result -->
+        <section id="result-screen" class="screen">
+            <div class="result-header">
+                <h2>Harika iş çıkardın <span id="final-student-name"></span>!</h2>
+            </div>
+
+            <div class="final-score-box">
+                <span class="label">Toplam Puan</span>
+                <span class="big-score" id="final-score">0</span>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="label">Doğru Sayısı</span>
+                    <span class="value" id="final-correct">0/60</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">En Uzun Seri</span>
+                    <span class="value" id="final-streak">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">Toplam Süre</span>
+                    <span class="value" id="final-time">00:00</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">Ortalama Süre / Soru</span>
+                    <span class="value" id="final-avg-time">0.0s</span>
+                    <div style="margin-top:0.5rem; font-size:1rem; font-weight:700; color:var(--accent-orange);"
+                        id="speed-label">Dengeli</div>
+                </div>
+            </div>
+
+            <div id="motivational-message" class="motivational-box"></div>
+
+            <button id="btn-restart" class="btn btn-primary btn-large" style="margin-top: 2rem;">Tekrar Oyna</button>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
